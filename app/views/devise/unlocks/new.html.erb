@@ -1,0 +1,11 @@
+<% @meta_title = "Отправка инструкций по разблокировке профиля" %>
+<% page_title "Отправка инструкций по разблокировке профиля" %>
+<div class="ct-box">
+  <%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <p><%= f.label :email %>
+    <%= f.email_field :email %></p>
+    <p><%= f.submit "Отправить" %></p>
+  <% end %>
+  <%= render :partial => "devise/shared/links" %>
+</div>

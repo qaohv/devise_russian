@@ -1,0 +1,7 @@
+ru:
+  devise_russian:
+    my_authentications: Мои авторизации
+    authentication_not_found: Авторизация не найдена
+    mailer:
+      site_name: "******************"
+      site_url: "http://********************"

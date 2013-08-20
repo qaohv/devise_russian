@@ -1,0 +1,37 @@
+<% if @authentications.size > 0 %>
+  <table class="authentications resource">
+    <thead>
+      <tr>
+        <th class="t-left">Провайдер</th>
+        <th>UID</th>
+        <th>Email</th>
+        <th>Имя</th>
+        <th>Управление</th>
+      </tr>
+    </thead>
+    <% @authentications.each do |authentication| %>
+      <tr>
+        <td class="t-left provider">
+          <img width="16" height="16" src="/assets/sc/64/<%= authentication.provider %>.png" alt="<%= authentication.provider %>" />
+          <div><%= authentication.provider.titleize %></div>
+        </td>
+        <td>
+          <%= authentication.uid %>
+        </td>
+        <td>
+          <%= truncate authentication.email, :length => 30 %>
+        </td>
+        <td>
+          <%= truncate authentication.name, :length => 30 %>
+        </td>
+        <td>
+          <%= link_to t("delete"), authentication, :confirm => t("shure"), :method => :delete, :class => "delete" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <div class="clear"></div>
+<% else %>
+  <p>Авторизаций не найдено.</p>
+<% end %>
+<%= render "devise/shared/social_links" if User.ommiauth_enabled %>

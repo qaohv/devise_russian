@@ -1,0 +1,11 @@
+<% @meta_title = "Забыли пароль?" %>
+<% page_title "Забыли пароль?" %>
+<div class="ct-box">
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <p><%= f.label :email %>
+    <%= f.email_field :email %></p>
+    <p><%= f.submit "Отправить инструкции" %></p>
+  <% end %>
+  <%= render :partial => "devise/shared/links" %>
+</div>

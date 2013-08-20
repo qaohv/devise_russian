@@ -1,0 +1,10 @@
+<div class="sc">
+  <p>Войти через:</p>
+  <p>
+    <% Authentication.providers.each do |provider| %>
+      <a class="<%= provider[0] %>" title="Войти через <%= provider[1] %>" href="/auth/<%= provider[0] %>">
+        <img width="32" height="32" src="/assets/sc/64/<%= provider[0] %>.png" alt="Войти через <%= provider[1] %>" />
+      </a>
+    <% end %>
+  </p>
+</div>

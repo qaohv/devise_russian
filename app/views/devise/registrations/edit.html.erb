@@ -1,0 +1,18 @@
+<% @meta_title = "Редактировать профиль" %>
+<% page_title "Редактировать профиль" %>
+<div class="ct-box">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <p><%= f.label :email %>
+    <%= f.email_field :email %></p>
+    <p><%= f.label :password %> <i>(оставьте пустым, если не хотите менять)</i><br />
+    <%= f.password_field :password %></p>
+    <p><%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %></p>
+    <p><%= f.label :current_password %> <i>(введите текущий пароль, чтобы сохранить изменения)</i><br />
+    <%= f.password_field :current_password %></p>
+    <p><%= f.submit "Обновить" %></p>
+  <% end %>
+  <p>Или <%= link_to "удалить профиль", registration_path(resource_name), :confirm => t('sure?'), :method => :delete %>.</p>
+  <%= link_to "Назад", :back %>
+</div>
